@@ -1,16 +1,22 @@
 package com.example.InstarCloneBe.board.entity;
 
-import com.example.InstarCloneBe.comment.entity.Comment;
-import com.example.InstarCloneBe.member.entity.Member;
 import jakarta.persistence.*;
-import lombok.*;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "board")
 public class Board {
 
@@ -23,10 +29,16 @@ public class Board {
 
     private String imgUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id", nullable = false)
-    private Member member;
+    @CreatedDate
+    private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments;
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "member_id", nullable = false)
+//    private Member member;
+//
+//    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Comment> comments;
 }

@@ -1,14 +1,12 @@
 package com.example.InstarCloneBe.board.dto.request;
 
 import com.example.InstarCloneBe.board.entity.Board;
-import com.example.InstarCloneBe.member.entity.Member;
 
-public record BoardRequest(Long memberId, String content, String imgUrl) {
-    public Board toEntity(Member member) {
+public record BoardRequest(String content, String imgUrl) {
+    public Board toEntity() {
         return Board.builder()
-                .content(this.content)
-                .imgUrl(this.imgUrl)
-                .member(member)
+                .content(content)
+                .imgUrl(imgUrl)
                 .build();
     }
 }
