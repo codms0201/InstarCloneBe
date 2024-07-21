@@ -3,46 +3,34 @@ package com.example.InstarCloneBe.board.controller;
 import com.example.InstarCloneBe.board.dto.request.BoardRequest;
 import com.example.InstarCloneBe.board.entity.Board;
 import com.example.InstarCloneBe.board.service.BoardService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/boards")
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class BoardController {
 
-    private final BoardService boardService;
+    @Autowired
+    private BoardService boardService;
 
     @PostMapping("/create")
-    public ResponseEntity<Board> createBoard(@RequestBody BoardRequest boardRequest) {
+    public ResponseEntity<Board> createBoard(
+            @RequestParam("content") String content,
+            @RequestParam("imgUrl") MultipartFile imgUrl) {
+
+        // 이미지 파일 처리
+        String imgUrlPath = ""; // 파일 처리 후 이미지 URL 설정
+
+        BoardRequest boardRequest = new BoardRequest(content, imgUrlPath);
         Board board = boardService.createBoard(boardRequest);
         return ResponseEntity.ok(board);
     }
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<BoardResponse> getBoardById(@PathVariable Long id) {
-//        BoardResponse boardResponse = boardService.getBoardById(id);
-//        return ResponseEntity.ok(boardResponse);
-//    }
-//
-//    @GetMapping
-//    public ResponseEntity<List<BoardResponse>> getAllBoards() {
-//        List<BoardResponse> boards = boardService.getAllBoards();
-//        return ResponseEntity.ok(boards);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<BoardResponse> updateBoard(@PathVariable Long id, @RequestBody BoardRequest boardRequest) {
-//        BoardResponse updatedBoard = boardService.updateBoard(id, boardRequest);
-//        return ResponseEntity.ok(updatedBoard);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deleteBoard(@PathVariable Long id) {
-//        boardService.deleteBoard(id);
-//        return ResponseEntity.noContent().build();
-//    }
 }

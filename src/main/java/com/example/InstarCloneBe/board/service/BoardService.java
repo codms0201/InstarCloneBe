@@ -5,14 +5,18 @@ import com.example.InstarCloneBe.board.dto.request.BoardRequest;
 import com.example.InstarCloneBe.board.entity.Board;
 import com.example.InstarCloneBe.board.repository.BoardRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class BoardService {
 
-    private final BoardRepository boardRepository;
+    @Autowired
+    private BoardRepository boardRepository;
 
 
     @Transactional
