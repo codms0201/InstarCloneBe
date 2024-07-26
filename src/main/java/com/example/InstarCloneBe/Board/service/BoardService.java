@@ -1,13 +1,11 @@
-package com.example.InstarCloneBe.board.service;
+package com.example.InstarCloneBe.Board.service;
 
 
-import com.example.InstarCloneBe.board.dto.request.BoardRequest;
-import com.example.InstarCloneBe.board.entity.Board;
-import com.example.InstarCloneBe.board.repository.BoardRepository;
+import com.example.InstarCloneBe.Board.dto.request.BoardRequest;
+import com.example.InstarCloneBe.Board.entity.Board;
+import com.example.InstarCloneBe.Board.repository.BoardRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

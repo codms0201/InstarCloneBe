@@ -11,5 +11,4 @@ public class InstarCloneBeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InstarCloneBeApplication.class, args);
 	}
-
 }

@@ -1,11 +1,9 @@
-package com.example.InstarCloneBe.board.controller;
+package com.example.InstarCloneBe.Board.controller;
 
-import com.example.InstarCloneBe.board.dto.request.BoardRequest;
-import com.example.InstarCloneBe.board.entity.Board;
-import com.example.InstarCloneBe.board.service.BoardService;
-import lombok.AllArgsConstructor;
+import com.example.InstarCloneBe.Board.dto.request.BoardRequest;
+import com.example.InstarCloneBe.Board.entity.Board;
+import com.example.InstarCloneBe.Board.service.BoardService;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,6 @@
-package com.example.InstarCloneBe.board.entity;
+package com.example.InstarCloneBe.Board.entity;
 
+import com.example.InstarCloneBe.User.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,10 +36,10 @@ public class Board {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id", nullable = false)
-//    private Member member;
-//
-//    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Comment> comments;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
+
+    //@OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<Comment> comments;
 }

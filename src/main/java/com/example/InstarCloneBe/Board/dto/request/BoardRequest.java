@@ -1,6 +1,6 @@
-package com.example.InstarCloneBe.board.dto.request;
+package com.example.InstarCloneBe.Board.dto.request;
 
-import com.example.InstarCloneBe.board.entity.Board;
+import com.example.InstarCloneBe.Board.entity.Board;
 
 public record BoardRequest(String content, String imgUrl) {
     public Board toEntity() {
