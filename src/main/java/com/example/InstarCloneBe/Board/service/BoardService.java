@@ -1,28 +1,27 @@
-//package com.example.InstarCloneBe.Board.service;
-//
-//
-//import com.example.InstarCloneBe.Board.dto.request.BoardRequest;
-//import com.example.InstarCloneBe.Board.entity.Board;
-//import com.example.InstarCloneBe.Board.repository.BoardRepository;
-//import jakarta.transaction.Transactional;
-//import lombok.NoArgsConstructor;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//@Service
-//@NoArgsConstructor
-//public class BoardService {
-//
-//    @Autowired
-//    private BoardRepository boardRepository;
-//
-//
-//    @Transactional
-//    public Board createBoard(BoardRequest boardRequest) {
-//        Board board = boardRequest.toEntity();
-//        return boardRepository.save(board);
-//    }
-//
+package com.example.InstarCloneBe.Board.service;
+
+import com.example.InstarCloneBe.Board.dto.request.BoardRequest;
+import com.example.InstarCloneBe.Board.entity.Board;
+import com.example.InstarCloneBe.Board.repository.BoardRepository;
+import jakarta.transaction.Transactional;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@NoArgsConstructor
+public class BoardService {
+
+    @Autowired
+    private BoardRepository boardRepository;
+
+
+    @Transactional
+    public Board createBoard(BoardRequest boardRequest) {
+        Board board = boardRequest.toEntity();
+        return boardRepository.save(board);
+    }
+
 ////    @Transactional
 ////    public BoardResponse updateBoard(Long id, BoardRequest boardRequest) {
 ////        Board board = boardRepository.findById(id)
@@ -53,4 +52,4 @@
 ////                .orElseThrow(() -> new IllegalArgumentException("Invalid board ID"));
 ////        boardRepository.delete(board);
 ////    }
-//}
+}
