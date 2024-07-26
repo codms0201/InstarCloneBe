@@ -1,4 +1,4 @@
-package com.example.InstarCloneBe.config;
+/*package com.example.InstarCloneBe.config;
 
 import com.example.InstarCloneBe.util.jwt.JwtUtil;
 import io.jsonwebtoken.Claims;
@@ -106,4 +106,4 @@ public class JwtFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         return path.startsWith("/api/auth/**") || path.startsWith("/health");
     }
-}
+}*/

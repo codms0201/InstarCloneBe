@@ -1,4 +1,4 @@
-package com.example.InstarCloneBe.config;
+/*package com.example.InstarCloneBe.config;
 
 import org.springframework.boot.web.servlet.view.MustacheViewResolver;
 import org.springframework.context.annotation.Configuration;
@@ -20,4 +20,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
         resolver.setSuffix(".html");
         registry.viewResolver(resolver);
     }
-}
+}*/
