@@ -18,6 +18,10 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
+    public Member findMemberById(Long memberId) {
+        return memberRepository.findById(memberId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid member ID"));
+    }
 
     public Optional<Member> findByEmail(String email) {
         return memberRepository.findByEmail(email);

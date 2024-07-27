@@ -38,7 +38,7 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private Member user;
+    private Member member;
 
     //@OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     //private List<Comment> comments;

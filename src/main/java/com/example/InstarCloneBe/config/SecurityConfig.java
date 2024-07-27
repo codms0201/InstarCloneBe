@@ -78,8 +78,6 @@ public class SecurityConfig {
                                         .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/api/board/articles")
                                         .permitAll()
-                                        .requestMatchers(HttpMethod.POST, "/api/boards/create")
-                                        .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/favicon.ico")
                                         .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/nickname")

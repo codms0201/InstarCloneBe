@@ -3,6 +3,7 @@ package com.example.InstarCloneBe.Board.service;
 import com.example.InstarCloneBe.Board.dto.request.BoardRequest;
 import com.example.InstarCloneBe.Board.entity.Board;
 import com.example.InstarCloneBe.Board.repository.BoardRepository;
+import com.example.InstarCloneBe.member.entity.Member;
 import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class BoardService {
 
 
     @Transactional
-    public Board createBoard(BoardRequest boardRequest) {
-        Board board = boardRequest.toEntity();
+    public Board createBoard(BoardRequest boardRequest, Member member) {
+        Board board = boardRequest.toEntity(member);
         return boardRepository.save(board);
     }
 
