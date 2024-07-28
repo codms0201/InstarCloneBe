@@ -24,16 +24,23 @@ public class Member {
     @Column(nullable = false, unique = true)
     private String uid;
 
+    private String name;
+
     private String nickname;
 
     private String email;
+
+    private String pImg_url;
+
+    private String intro;
 
     @CreatedDate
     private LocalDateTime createdAt;
 
     @Builder
-    public Member(String uid, String nickname, String email) {
+    public Member(String uid, String nickname, String email, String name) {
         this.uid = uid;
+        this.name = name;
         this.nickname = nickname;
         this.email = email;
     }

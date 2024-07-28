@@ -78,8 +78,6 @@ public class SecurityConfig {
                                         .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/api/board/articles")
                                         .permitAll()
-                                        .requestMatchers(HttpMethod.POST, "/api/boards/create")
-                                        .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/favicon.ico")
                                         .permitAll()
                                         .requestMatchers(HttpMethod.GET, "/nickname")
@@ -155,14 +153,15 @@ public class SecurityConfig {
 
         return userRequest -> {
             OAuth2User oAuth2User = delegate.loadUser(userRequest);
-            Optional<Member> registered = memberRepository.findByUid(oAuth2User.getName());
+            Optional<Member> registered = memberRepository.findByEmail(oAuth2User.getName());
 
             if (registered.isEmpty()) {
                 Member member =
                         Member.builder()
                                 .uid(oAuth2User.getAttribute("sub"))
                                 .email(oAuth2User.getAttribute("email"))
-                                .nickname(oAuth2User.getAttribute("name"))
+                                .name(oAuth2User.getAttribute("name"))
+                                //.nickname()
                                 .build();
                 memberRepository.save(member);
             }
@@ -170,4 +169,3 @@ public class SecurityConfig {
         };
     }
 }
-
