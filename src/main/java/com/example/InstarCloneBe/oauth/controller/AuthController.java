@@ -120,6 +120,7 @@
 ///////////
 
 package com.example.InstarCloneBe.oauth.controller;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
@@ -170,5 +171,20 @@ public class AuthController {
 
         return ResponseEntity.ok(authDTO);
     }
+
+    @RequestMapping("/api")
+    public class LogoutController {
+
+        @PostMapping("/logout")
+        @ResponseStatus(HttpStatus.NO_CONTENT) // 성공적으로 처리되었으나, 응답할 컨텐츠가 없는 경우 204 상태 코드 반환
+        public void logout(HttpServletRequest request) {
+            // 세션 무효화
+            var session = request.getSession(false); // 현재 세션을 가져오되, 없으면 새 세션을 생성하지 않음
+            if (session != null) {
+                session.invalidate(); // 세션을 무효화
+            }
+        }
+    }
+
 }
 
